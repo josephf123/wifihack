@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="papaparse.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Google map logging</title>
+</head>
+<body>
+    <script src="load_csv_data.js"></script>
+    <script src="map_create.js"></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&callback=initialize" async defer>
+    </script>
+    <div style="display: flex;">
+        <div id="map" style="height: 800px; width: 1300px;"></div>
+        <div style="flex-grow: 1;">
+            <div>All different AP/clients</div>
+            <input type="text" placeholder="enter filter">
+            <div id="forTable"></div>
+        </div>
+
+    </div>
+</body>
+</html>
