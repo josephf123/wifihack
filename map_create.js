@@ -1,21 +1,19 @@
 let map;
+// This is run by the API
 function initialize() {
     initMap()
-    load_json_data(ap_file_json, "red", 0.00002)
+    load_json_data(ap_file_json, "red", 0.0004)
     load_json_data(client_file_json, "blue", 0)
     forTable(ap_file_json.concat(client_file_json), "bigTable")
 }
 
-function forTable(arr, id) {
-    let htmlTable = buildHtmlTable(arr, "bigTable")
-    document.getElementById("forTable").innerHTML = htmlTable
-    document.getElementById("bigTable").style = "border: 1px solid black"
-}
 
+
+// Initialize the map with center location
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -33.769540072, lng: 151.192954936 },
-    zoom: 20,
+    center: { lat: -33.786367537, lng: 151.182865095 },
+    zoom: 15,
   });
 }
 
@@ -45,6 +43,7 @@ function load_json_data(json_file, col, offset) {
     let currTime = json_file[0].time;
     let dataArray = [];
     for (let i=0; i < json_file.length; i++) {
+        // This will separate the entries by when they were recorded
         if (json_file[i].time == currTime) {
             dataArray.push(json_file[i])
         } else {
@@ -62,10 +61,16 @@ function load_json_data(json_file, col, offset) {
     , html_string, col, offset)
 }
 
+function forTable(arr, id) {
+    let htmlTable = buildHtmlTable(arr, "bigTable")
+    document.getElementById("forTable").innerHTML = htmlTable
+    document.getElementById("bigTable").style = "border: 1px solid black"
+}
+
+// Creates a html string with all the json data points
 function buildHtmlTable(array, id) {
     let str = "<table id=" + id + "><tr>"
     if (array.length == 0) return
-    console.log(array[0])
     let header_array = Object.keys(array[0])
     for (let i=0; i < header_array.length; i++) {
         str += "<th>" + header_array[i] + "</th>"

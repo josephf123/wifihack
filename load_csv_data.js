@@ -26,6 +26,3 @@ let client_file_csv = client_header_data + readTextFile("http://localhost:8080/a
 
 let ap_file_json = Papa.parse(ap_file_csv, {header:"true"}).data
 let client_file_json = Papa.parse(client_file_csv, {header:"true"}).data
-
-// console.log(ap_file_json)
-// console.log(client_file_json)

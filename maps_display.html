@@ -11,14 +11,19 @@
 <body>
     <script src="load_csv_data.js"></script>
     <script src="map_create.js"></script>
+    <script src="button_functionality.js"></script>
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&callback=initialize" async defer>
     </script>
+    <div>
+        <button id="hide_map">Hide/unhide map</button>
+        <button id="hide_table">Hide/unhide table</button>
+    </div>
     <div style="display: flex;">
         <div id="map" style="height: 800px; width: 1300px;"></div>
-        <div style="flex-grow: 1;">
+        <div id="wifiTable" style="flex-grow: 1;">
             <div>All different AP/clients</div>
-            <input type="text" placeholder="enter filter">
+            <input type="text" placeholder="Enter filter" id="filterInput">
             <div id="forTable"></div>
         </div>
 
