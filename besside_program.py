@@ -13,7 +13,7 @@ interface='mon0'
 # runs besside
 besside_run = subprocess.Popen(["sudo", "besside-ng", "mon0"])
 
-time.sleep(25)
+time.sleep(245)
 
 besside_run.send_signal(15)
 
